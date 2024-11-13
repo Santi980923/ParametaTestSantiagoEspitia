@@ -1,0 +1,44 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://com.springbootsoap.allapis"
+           targetNamespace="http://com.springbootsoap.allapis"
+           elementFormDefault="qualified">
+
+
+    <xs:complexType name="employeeInfo">
+        <xs:sequence>
+            <xs:element name="employeeId" type="xs:long"/>
+            <xs:element name="nombre" type="xs:string"/>
+            <xs:element name="apellido" type="xs:string"/>
+            <xs:element name="tipoDocumento" type="xs:string"/>
+            <xs:element name="numeroDocumento" type="xs:string"/>
+            <xs:element name="fechaNacimiento" type="xs:date"/>
+            <xs:element name="fechaVinculacion" type="xs:date"/>
+            <xs:element name="cargo" type="xs:string"/>
+            <xs:element name="salario" type="xs:double"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="serviceStatus">
+        <xs:sequence>
+            <xs:element name="status" type="xs:string"/>
+            <xs:element name="message" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="addEmployeeRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="employeeInfo" type="tns:employeeInfo"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="addEmployeeResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="serviceStatus" type="tns:serviceStatus"/>
+                <xs:element name="employeeInfo" type="tns:employeeInfo"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
